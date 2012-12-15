@@ -1,10 +1,12 @@
 package org.fabrelab.sitefactory.dal.dao.impl;
-import java.io.Serializable;
-import java.util.*;
-import org.fabrelab.sitefactory.dal.dataobject.*;
-import org.fabrelab.sitefactory.dal.dao.*;
-import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.fabrelab.pagekit.PageInfo;
+import org.fabrelab.sitefactory.dal.dao.CommentPermissionDAO;
+import org.fabrelab.sitefactory.dal.dataobject.CommentPermissionDO;
+import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 public class CommentPermissionDAOImpl extends SqlMapClientDaoSupport implements CommentPermissionDAO {
 
     public java.lang.Long insert(CommentPermissionDO commentPermissionDO) {
