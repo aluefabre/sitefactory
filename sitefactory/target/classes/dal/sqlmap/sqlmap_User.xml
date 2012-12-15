@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="User" >
+    <typeAlias alias="userDO" type="org.fabrelab.sitefactory.dal.dataobject.UserDO" />
+    <resultMap id="userDOResultMap" class="userDO" >
+        <result property="id" column="id" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModify" column="gmt_modify" />
+        <result property="creatorId" column="creator_id" />
+        <result property="modifierId" column="modifier_id" />
+        <result property="name" column="name" />
+        <result property="email" column="email" />
+        <result property="password" column="password" />
+        <result property="profession" column="profession" />
+        <result property="company" column="company" />
+        <result property="location" column="location" />
+    </resultMap>
+    <sql id="userDO_selectColumns" >
+        a1.`id`, a1.`gmt_create`, a1.`gmt_modify`, a1.`creator_id`, a1.`modifier_id`, a1.`name`, a1.`email`, a1.`password`, a1.`profession`, a1.`company`, a1.`location`
+    </sql>
+    <sql id="userDO_queryParams" >
+        <dynamic prepend="WHERE" >
+            <isNotNull property="id" prepend="AND" >
+                <![CDATA[
+                `id` = #id#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtCreate" prepend="AND" >
+                <![CDATA[
+                `gmt_create` = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="AND" >
+                <![CDATA[
+                `gmt_modify` = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="AND" >
+                <![CDATA[
+                `creator_id` = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="AND" >
+                <![CDATA[
+                `modifier_id` = #modifierId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="name" prepend="AND" >
+                <![CDATA[
+                `name` = #name#
+                ]]>
+            </isNotNull>
+            <isNotNull property="email" prepend="AND" >
+                <![CDATA[
+                `email` = #email#
+                ]]>
+            </isNotNull>
+            <isNotNull property="password" prepend="AND" >
+                <![CDATA[
+                `password` = #password#
+                ]]>
+            </isNotNull>
+            <isNotNull property="profession" prepend="AND" >
+                <![CDATA[
+                `profession` = #profession#
+                ]]>
+            </isNotNull>
+            <isNotNull property="company" prepend="AND" >
+                <![CDATA[
+                `company` = #company#
+                ]]>
+            </isNotNull>
+            <isNotNull property="location" prepend="AND" >
+                <![CDATA[
+                `location` = #location#
+                ]]>
+            </isNotNull>
+        </dynamic>
+    </sql>
+
+    <insert id="insert" parameterClass="userDO" >
+        INSERT INTO `user`( id, gmt_create, gmt_modify, creator_id, modifier_id, name, email, password, profession, company, location)
+        VALUES ( #id#, #gmtCreate#, #gmtModify#, #creatorId#, #modifierId#, #name#, #email#, #password#, #profession#, #company#, #location#)
+        <selectKey keyProperty="id" resultClass="java.lang.Long" >
+            SELECT LAST_INSERT_ID() AS value
+        </selectKey>
+    </insert>
+
+
+    <update id="update" parameterClass="userDO" >
+        UPDATE `user` 
+        <dynamic prepend="SET" >
+            <isNotNull property="gmtCreate" prepend="," >
+                <![CDATA[
+                gmt_create = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="," >
+                <![CDATA[
+                gmt_modify = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="," >
+                <![CDATA[
+                creator_id = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="," >
+                <![CDATA[
+                modifier_id = #modifierId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="name" prepend="," >
+                <![CDATA[
+                name = #name#
+                ]]>
+            </isNotNull>
+            <isNotNull property="email" prepend="," >
+                <![CDATA[
+                email = #email#
+                ]]>
+            </isNotNull>
+            <isNotNull property="password" prepend="," >
+                <![CDATA[
+                password = #password#
+                ]]>
+            </isNotNull>
+            <isNotNull property="profession" prepend="," >
+                <![CDATA[
+                profession = #profession#
+                ]]>
+            </isNotNull>
+            <isNotNull property="company" prepend="," >
+                <![CDATA[
+                company = #company#
+                ]]>
+            </isNotNull>
+            <isNotNull property="location" prepend="," >
+                <![CDATA[
+                location = #location#
+                ]]>
+            </isNotNull>
+        </dynamic>
+        WHERE id = #id# 
+    </update>
+
+
+    <select id="findByPrimaryKey" parameterClass="java.lang.Long" resultMap="userDOResultMap">
+        SELECT 
+            <include refid="userDO_selectColumns" />
+         <![CDATA[  
+             FROM `user` a1 WHERE id = #id#  
+         ]]>   
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterClass="java.lang.Long" >
+         <![CDATA[  
+            DELETE FROM `user` WHERE id = #id#  
+         ]]>   
+    </delete>
+
+
+    <select id="countByExample" parameterClass="userDO" resultClass="java.lang.Integer">
+        SELECT COUNT(id) AS num FROM `user`
+            <include refid="userDO_queryParams" />
+    </select>
+
+
+    <select id="listByExample" parameterClass="userDO" resultMap="userDOResultMap">
+        SELECT 
+            <include refid="userDO_selectColumns" />
+         FROM `user` a1 
+            <include refid="userDO_queryParams" />
+    </select>
+
+
+    <select id="pageByExample" parameterClass="java.util.Map" resultMap="userDOResultMap">
+        SELECT 
+            <include refid="userDO_selectColumns" />
+         FROM `user` a1 
+            <include refid="userDO_queryParams" />
+        LIMIT #pageStart#, #pageSize#
+    </select>
+
+
+    <select id="deleteByExample" parameterClass="userDO" resultClass="java.lang.Integer">
+        DELETE FROM `user`
+            <include refid="userDO_queryParams" />
+    </select>
+
+
+    <select id="listByRelation" parameterClass="java.util.Map" resultMap="userDOResultMap">
+        SELECT 
+            <include refid="userDO_selectColumns" />
+        FROM `user` a1, `user_relation` b1 
+        WHERE a1.id = b1.user_id 
+        <dynamic prepend="AND" >
+          <isNotNull property="relatedType" prepend="AND" >
+        	<![CDATA[  
+            b1.related_type = #relatedType#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relatedId" prepend="AND" >
+            <![CDATA[  
+            b1.related_id = #relatedId#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relation" prepend="AND" >
+            <![CDATA[  
+            b1.relation = #relation#  
+            ]]>  
+          </isNotNull>
+        </dynamic>
+    </select>
+
+
+    <select id="pageByRelation" parameterClass="java.util.Map" resultMap="userDOResultMap">
+        SELECT 
+            <include refid="userDO_selectColumns" />
+        FROM `user` a1, `user_relation` b1 
+        WHERE a1.id = b1.user_id 
+        <dynamic prepend="AND" >
+          <isNotNull property="relatedType" prepend="AND" >
+        	<![CDATA[  
+            b1.related_type = #relatedType#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relatedId" prepend="AND" >
+            <![CDATA[  
+            b1.related_id = #relatedId#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relation" prepend="AND" >
+            <![CDATA[  
+            b1.relation = #relation#  
+            ]]>  
+          </isNotNull>
+        </dynamic>
+        LIMIT #pageStart#, #pageSize#
+    </select>
+
+
+    <select id="pageByRelationAndExample" parameterClass="java.util.Map" resultMap="userDOResultMap">
+        SELECT 
+            <include refid="userDO_selectColumns" />
+        FROM `user` a1, `user_relation` b1 
+        WHERE a1.id = b1.user_id 
+        <dynamic prepend="AND" >
+          <isNotNull property="relatedType" prepend="AND" >
+        	<![CDATA[  
+            b1.related_type = #relatedType#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relatedId" prepend="AND" >
+            <![CDATA[  
+            b1.related_id = #relatedId#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relation" prepend="AND" >
+            <![CDATA[  
+            b1.relation = #relation#  
+            ]]>  
+          </isNotNull>
+            <isNotNull property="id" prepend="AND" >
+                <![CDATA[
+                a1.`id` = #id#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtCreate" prepend="AND" >
+                <![CDATA[
+                a1.`gmt_create` = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="AND" >
+                <![CDATA[
+                a1.`gmt_modify` = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="AND" >
+                <![CDATA[
+                a1.`creator_id` = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="AND" >
+                <![CDATA[
+                a1.`modifier_id` = #modifierId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="name" prepend="AND" >
+                <![CDATA[
+                a1.`name` = #name#
+                ]]>
+            </isNotNull>
+            <isNotNull property="email" prepend="AND" >
+                <![CDATA[
+                a1.`email` = #email#
+                ]]>
+            </isNotNull>
+            <isNotNull property="password" prepend="AND" >
+                <![CDATA[
+                a1.`password` = #password#
+                ]]>
+            </isNotNull>
+            <isNotNull property="profession" prepend="AND" >
+                <![CDATA[
+                a1.`profession` = #profession#
+                ]]>
+            </isNotNull>
+            <isNotNull property="company" prepend="AND" >
+                <![CDATA[
+                a1.`company` = #company#
+                ]]>
+            </isNotNull>
+            <isNotNull property="location" prepend="AND" >
+                <![CDATA[
+                a1.`location` = #location#
+                ]]>
+            </isNotNull>
+        </dynamic>
+        LIMIT #pageStart#, #pageSize#
+    </select>
+
+
+    <select id="listByRelationAndExample" parameterClass="java.util.Map" resultMap="userDOResultMap">
+        SELECT 
+            <include refid="userDO_selectColumns" />
+        FROM `user` a1, `user_relation` b1 
+        WHERE a1.id = b1.user_id 
+        <dynamic prepend="AND" >
+          <isNotNull property="relatedType" prepend="AND" >
+        	<![CDATA[  
+            b1.related_type = #relatedType#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relatedId" prepend="AND" >
+            <![CDATA[  
+            b1.related_id = #relatedId#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relation" prepend="AND" >
+            <![CDATA[  
+            b1.relation = #relation#  
+            ]]>  
+          </isNotNull>
+            <isNotNull property="id" prepend="AND" >
+                <![CDATA[
+                a1.`id` = #id#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtCreate" prepend="AND" >
+                <![CDATA[
+                a1.`gmt_create` = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="AND" >
+                <![CDATA[
+                a1.`gmt_modify` = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="AND" >
+                <![CDATA[
+                a1.`creator_id` = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="AND" >
+                <![CDATA[
+                a1.`modifier_id` = #modifierId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="name" prepend="AND" >
+                <![CDATA[
+                a1.`name` = #name#
+                ]]>
+            </isNotNull>
+            <isNotNull property="email" prepend="AND" >
+                <![CDATA[
+                a1.`email` = #email#
+                ]]>
+            </isNotNull>
+            <isNotNull property="password" prepend="AND" >
+                <![CDATA[
+                a1.`password` = #password#
+                ]]>
+            </isNotNull>
+            <isNotNull property="profession" prepend="AND" >
+                <![CDATA[
+                a1.`profession` = #profession#
+                ]]>
+            </isNotNull>
+            <isNotNull property="company" prepend="AND" >
+                <![CDATA[
+                a1.`company` = #company#
+                ]]>
+            </isNotNull>
+            <isNotNull property="location" prepend="AND" >
+                <![CDATA[
+                a1.`location` = #location#
+                ]]>
+            </isNotNull>
+        </dynamic>
+    </select>
+
+</sqlMap>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="TermRelation" >
+    <typeAlias alias="termRelationDO" type="org.fabrelab.sitefactory.dal.dataobject.TermRelationDO" />
+    <resultMap id="termRelationDOResultMap" class="termRelationDO" >
+        <result property="id" column="id" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModify" column="gmt_modify" />
+        <result property="creatorId" column="creator_id" />
+        <result property="modifierId" column="modifier_id" />
+        <result property="relatedId" column="related_id" />
+        <result property="termId" column="term_id" />
+        <result property="relation" column="relation" />
+        <result property="relatedType" column="related_type" />
+        <result property="relationData" column="relation_data" />
+    </resultMap>
+    <sql id="termRelationDO_selectColumns" >
+        a1.`id`, a1.`gmt_create`, a1.`gmt_modify`, a1.`creator_id`, a1.`modifier_id`, a1.`related_id`, a1.`term_id`, a1.`relation`, a1.`related_type`, a1.`relation_data`
+    </sql>
+    <sql id="termRelationDO_queryParams" >
+        <dynamic prepend="WHERE" >
+            <isNotNull property="id" prepend="AND" >
+                <![CDATA[
+                `id` = #id#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtCreate" prepend="AND" >
+                <![CDATA[
+                `gmt_create` = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="AND" >
+                <![CDATA[
+                `gmt_modify` = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="AND" >
+                <![CDATA[
+                `creator_id` = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="AND" >
+                <![CDATA[
+                `modifier_id` = #modifierId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="relatedId" prepend="AND" >
+                <![CDATA[
+                `related_id` = #relatedId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="termId" prepend="AND" >
+                <![CDATA[
+                `term_id` = #termId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="relation" prepend="AND" >
+                <![CDATA[
+                `relation` = #relation#
+                ]]>
+            </isNotNull>
+            <isNotNull property="relatedType" prepend="AND" >
+                <![CDATA[
+                `related_type` = #relatedType#
+                ]]>
+            </isNotNull>
+            <isNotNull property="relationData" prepend="AND" >
+                <![CDATA[
+                `relation_data` = #relationData#
+                ]]>
+            </isNotNull>
+        </dynamic>
+    </sql>
+
+    <insert id="insert" parameterClass="termRelationDO" >
+        INSERT INTO `term_relation`( id, gmt_create, gmt_modify, creator_id, modifier_id, related_id, term_id, relation, related_type, relation_data)
+        VALUES ( #id#, #gmtCreate#, #gmtModify#, #creatorId#, #modifierId#, #relatedId#, #termId#, #relation#, #relatedType#, #relationData#)
+        <selectKey keyProperty="id" resultClass="java.lang.Long" >
+            SELECT LAST_INSERT_ID() AS value
+        </selectKey>
+    </insert>
+
+
+    <update id="update" parameterClass="termRelationDO" >
+        UPDATE `term_relation` 
+        <dynamic prepend="SET" >
+            <isNotNull property="gmtCreate" prepend="," >
+                <![CDATA[
+                gmt_create = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="," >
+                <![CDATA[
+                gmt_modify = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="," >
+                <![CDATA[
+                creator_id = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="," >
+                <![CDATA[
+                modifier_id = #modifierId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="relatedId" prepend="," >
+                <![CDATA[
+                related_id = #relatedId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="termId" prepend="," >
+                <![CDATA[
+                term_id = #termId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="relation" prepend="," >
+                <![CDATA[
+                relation = #relation#
+                ]]>
+            </isNotNull>
+            <isNotNull property="relatedType" prepend="," >
+                <![CDATA[
+                related_type = #relatedType#
+                ]]>
+            </isNotNull>
+            <isNotNull property="relationData" prepend="," >
+                <![CDATA[
+                relation_data = #relationData#
+                ]]>
+            </isNotNull>
+        </dynamic>
+        WHERE id = #id# 
+    </update>
+
+
+    <select id="findByPrimaryKey" parameterClass="java.lang.Long" resultMap="termRelationDOResultMap">
+        SELECT 
+            <include refid="termRelationDO_selectColumns" />
+         <![CDATA[  
+             FROM `term_relation` a1 WHERE id = #id#  
+         ]]>   
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterClass="java.lang.Long" >
+         <![CDATA[  
+            DELETE FROM `term_relation` WHERE id = #id#  
+         ]]>   
+    </delete>
+
+
+    <select id="countByExample" parameterClass="termRelationDO" resultClass="java.lang.Integer">
+        SELECT COUNT(id) AS num FROM `term_relation`
+            <include refid="termRelationDO_queryParams" />
+    </select>
+
+
+    <select id="listByExample" parameterClass="termRelationDO" resultMap="termRelationDOResultMap">
+        SELECT 
+            <include refid="termRelationDO_selectColumns" />
+         FROM `term_relation` a1 
+            <include refid="termRelationDO_queryParams" />
+    </select>
+
+
+    <select id="pageByExample" parameterClass="java.util.Map" resultMap="termRelationDOResultMap">
+        SELECT 
+            <include refid="termRelationDO_selectColumns" />
+         FROM `term_relation` a1 
+            <include refid="termRelationDO_queryParams" />
+        LIMIT #pageStart#, #pageSize#
+    </select>
+
+
+    <select id="deleteByExample" parameterClass="termRelationDO" resultClass="java.lang.Integer">
+        DELETE FROM `term_relation`
+            <include refid="termRelationDO_queryParams" />
+    </select>
+
+
+
+
+
+
+
+
+
+</sqlMap>

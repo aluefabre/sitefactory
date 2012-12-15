@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Article" >
+    <typeAlias alias="articleDO" type="org.fabrelab.sitefactory.dal.dataobject.ArticleDO" />
+    <resultMap id="articleDOResultMap" class="articleDO" >
+        <result property="id" column="id" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModify" column="gmt_modify" />
+        <result property="creatorId" column="creator_id" />
+        <result property="modifierId" column="modifier_id" />
+        <result property="title" column="title" />
+        <result property="contentId" column="content_id" />
+        <result property="type" column="type" />
+    </resultMap>
+    <sql id="articleDO_selectColumns" >
+        a1.`id`, a1.`gmt_create`, a1.`gmt_modify`, a1.`creator_id`, a1.`modifier_id`, a1.`title`, a1.`content_id`, a1.`type`
+    </sql>
+    <sql id="articleDO_queryParams" >
+        <dynamic prepend="WHERE" >
+            <isNotNull property="id" prepend="AND" >
+                <![CDATA[
+                `id` = #id#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtCreate" prepend="AND" >
+                <![CDATA[
+                `gmt_create` = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="AND" >
+                <![CDATA[
+                `gmt_modify` = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="AND" >
+                <![CDATA[
+                `creator_id` = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="AND" >
+                <![CDATA[
+                `modifier_id` = #modifierId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="title" prepend="AND" >
+                <![CDATA[
+                `title` = #title#
+                ]]>
+            </isNotNull>
+            <isNotNull property="contentId" prepend="AND" >
+                <![CDATA[
+                `content_id` = #contentId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="type" prepend="AND" >
+                <![CDATA[
+                `type` = #type#
+                ]]>
+            </isNotNull>
+        </dynamic>
+    </sql>
+
+    <insert id="insert" parameterClass="articleDO" >
+        INSERT INTO `article`( id, gmt_create, gmt_modify, creator_id, modifier_id, title, content_id, type)
+        VALUES ( #id#, #gmtCreate#, #gmtModify#, #creatorId#, #modifierId#, #title#, #contentId#, #type#)
+        <selectKey keyProperty="id" resultClass="java.lang.Long" >
+            SELECT LAST_INSERT_ID() AS value
+        </selectKey>
+    </insert>
+
+
+    <update id="update" parameterClass="articleDO" >
+        UPDATE `article` 
+        <dynamic prepend="SET" >
+            <isNotNull property="gmtCreate" prepend="," >
+                <![CDATA[
+                gmt_create = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="," >
+                <![CDATA[
+                gmt_modify = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="," >
+                <![CDATA[
+                creator_id = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="," >
+                <![CDATA[
+                modifier_id = #modifierId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="title" prepend="," >
+                <![CDATA[
+                title = #title#
+                ]]>
+            </isNotNull>
+            <isNotNull property="contentId" prepend="," >
+                <![CDATA[
+                content_id = #contentId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="type" prepend="," >
+                <![CDATA[
+                type = #type#
+                ]]>
+            </isNotNull>
+        </dynamic>
+        WHERE id = #id# 
+    </update>
+
+
+    <select id="findByPrimaryKey" parameterClass="java.lang.Long" resultMap="articleDOResultMap">
+        SELECT 
+            <include refid="articleDO_selectColumns" />
+         <![CDATA[  
+             FROM `article` a1 WHERE id = #id#  
+         ]]>   
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterClass="java.lang.Long" >
+         <![CDATA[  
+            DELETE FROM `article` WHERE id = #id#  
+         ]]>   
+    </delete>
+
+
+    <select id="countByExample" parameterClass="articleDO" resultClass="java.lang.Integer">
+        SELECT COUNT(id) AS num FROM `article`
+            <include refid="articleDO_queryParams" />
+    </select>
+
+
+    <select id="listByExample" parameterClass="articleDO" resultMap="articleDOResultMap">
+        SELECT 
+            <include refid="articleDO_selectColumns" />
+         FROM `article` a1 
+            <include refid="articleDO_queryParams" />
+    </select>
+
+
+    <select id="pageByExample" parameterClass="java.util.Map" resultMap="articleDOResultMap">
+        SELECT 
+            <include refid="articleDO_selectColumns" />
+         FROM `article` a1 
+            <include refid="articleDO_queryParams" />
+        LIMIT #pageStart#, #pageSize#
+    </select>
+
+
+    <select id="deleteByExample" parameterClass="articleDO" resultClass="java.lang.Integer">
+        DELETE FROM `article`
+            <include refid="articleDO_queryParams" />
+    </select>
+
+
+    <select id="listByRelation" parameterClass="java.util.Map" resultMap="articleDOResultMap">
+        SELECT 
+            <include refid="articleDO_selectColumns" />
+        FROM `article` a1, `article_relation` b1 
+        WHERE a1.id = b1.article_id 
+        <dynamic prepend="AND" >
+          <isNotNull property="relatedType" prepend="AND" >
+        	<![CDATA[  
+            b1.related_type = #relatedType#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relatedId" prepend="AND" >
+            <![CDATA[  
+            b1.related_id = #relatedId#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relation" prepend="AND" >
+            <![CDATA[  
+            b1.relation = #relation#  
+            ]]>  
+          </isNotNull>
+        </dynamic>
+    </select>
+
+
+    <select id="pageByRelation" parameterClass="java.util.Map" resultMap="articleDOResultMap">
+        SELECT 
+            <include refid="articleDO_selectColumns" />
+        FROM `article` a1, `article_relation` b1 
+        WHERE a1.id = b1.article_id 
+        <dynamic prepend="AND" >
+          <isNotNull property="relatedType" prepend="AND" >
+        	<![CDATA[  
+            b1.related_type = #relatedType#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relatedId" prepend="AND" >
+            <![CDATA[  
+            b1.related_id = #relatedId#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relation" prepend="AND" >
+            <![CDATA[  
+            b1.relation = #relation#  
+            ]]>  
+          </isNotNull>
+        </dynamic>
+        LIMIT #pageStart#, #pageSize#
+    </select>
+
+
+    <select id="pageByRelationAndExample" parameterClass="java.util.Map" resultMap="articleDOResultMap">
+        SELECT 
+            <include refid="articleDO_selectColumns" />
+        FROM `article` a1, `article_relation` b1 
+        WHERE a1.id = b1.article_id 
+        <dynamic prepend="AND" >
+          <isNotNull property="relatedType" prepend="AND" >
+        	<![CDATA[  
+            b1.related_type = #relatedType#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relatedId" prepend="AND" >
+            <![CDATA[  
+            b1.related_id = #relatedId#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relation" prepend="AND" >
+            <![CDATA[  
+            b1.relation = #relation#  
+            ]]>  
+          </isNotNull>
+            <isNotNull property="id" prepend="AND" >
+                <![CDATA[
+                a1.`id` = #id#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtCreate" prepend="AND" >
+                <![CDATA[
+                a1.`gmt_create` = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="AND" >
+                <![CDATA[
+                a1.`gmt_modify` = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="AND" >
+                <![CDATA[
+                a1.`creator_id` = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="AND" >
+                <![CDATA[
+                a1.`modifier_id` = #modifierId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="title" prepend="AND" >
+                <![CDATA[
+                a1.`title` = #title#
+                ]]>
+            </isNotNull>
+            <isNotNull property="contentId" prepend="AND" >
+                <![CDATA[
+                a1.`content_id` = #contentId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="type" prepend="AND" >
+                <![CDATA[
+                a1.`type` = #type#
+                ]]>
+            </isNotNull>
+        </dynamic>
+        LIMIT #pageStart#, #pageSize#
+    </select>
+
+
+    <select id="listByRelationAndExample" parameterClass="java.util.Map" resultMap="articleDOResultMap">
+        SELECT 
+            <include refid="articleDO_selectColumns" />
+        FROM `article` a1, `article_relation` b1 
+        WHERE a1.id = b1.article_id 
+        <dynamic prepend="AND" >
+          <isNotNull property="relatedType" prepend="AND" >
+        	<![CDATA[  
+            b1.related_type = #relatedType#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relatedId" prepend="AND" >
+            <![CDATA[  
+            b1.related_id = #relatedId#  
+            ]]>  
+          </isNotNull>
+          <isNotNull property="relation" prepend="AND" >
+            <![CDATA[  
+            b1.relation = #relation#  
+            ]]>  
+          </isNotNull>
+            <isNotNull property="id" prepend="AND" >
+                <![CDATA[
+                a1.`id` = #id#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtCreate" prepend="AND" >
+                <![CDATA[
+                a1.`gmt_create` = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="AND" >
+                <![CDATA[
+                a1.`gmt_modify` = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="AND" >
+                <![CDATA[
+                a1.`creator_id` = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="AND" >
+                <![CDATA[
+                a1.`modifier_id` = #modifierId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="title" prepend="AND" >
+                <![CDATA[
+                a1.`title` = #title#
+                ]]>
+            </isNotNull>
+            <isNotNull property="contentId" prepend="AND" >
+                <![CDATA[
+                a1.`content_id` = #contentId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="type" prepend="AND" >
+                <![CDATA[
+                a1.`type` = #type#
+                ]]>
+            </isNotNull>
+        </dynamic>
+    </select>
+
+</sqlMap>

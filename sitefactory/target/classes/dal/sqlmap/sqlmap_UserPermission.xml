@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="UserPermission" >
+    <typeAlias alias="userPermissionDO" type="org.fabrelab.sitefactory.dal.dataobject.UserPermissionDO" />
+    <resultMap id="userPermissionDOResultMap" class="userPermissionDO" >
+        <result property="id" column="id" />
+        <result property="userId" column="user_id" />
+        <result property="permission" column="permission" />
+        <result property="userCondition" column="user_condition" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModify" column="gmt_modify" />
+        <result property="creatorId" column="creator_id" />
+        <result property="modifierId" column="modifier_id" />
+    </resultMap>
+    <sql id="userPermissionDO_selectColumns" >
+        a1.`id`, a1.`user_id`, a1.`permission`, a1.`user_condition`, a1.`gmt_create`, a1.`gmt_modify`, a1.`creator_id`, a1.`modifier_id`
+    </sql>
+    <sql id="userPermissionDO_queryParams" >
+        <dynamic prepend="WHERE" >
+            <isNotNull property="id" prepend="AND" >
+                <![CDATA[
+                `id` = #id#
+                ]]>
+            </isNotNull>
+            <isNotNull property="userId" prepend="AND" >
+                <![CDATA[
+                `user_id` = #userId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="permission" prepend="AND" >
+                <![CDATA[
+                `permission` = #permission#
+                ]]>
+            </isNotNull>
+            <isNotNull property="userCondition" prepend="AND" >
+                <![CDATA[
+                `user_condition` = #userCondition#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtCreate" prepend="AND" >
+                <![CDATA[
+                `gmt_create` = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="AND" >
+                <![CDATA[
+                `gmt_modify` = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="AND" >
+                <![CDATA[
+                `creator_id` = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="AND" >
+                <![CDATA[
+                `modifier_id` = #modifierId#
+                ]]>
+            </isNotNull>
+        </dynamic>
+    </sql>
+
+    <insert id="insert" parameterClass="userPermissionDO" >
+        INSERT INTO `user_permission`( id, user_id, permission, user_condition, gmt_create, gmt_modify, creator_id, modifier_id)
+        VALUES ( #id#, #userId#, #permission#, #userCondition#, #gmtCreate#, #gmtModify#, #creatorId#, #modifierId#)
+        <selectKey keyProperty="id" resultClass="java.lang.Long" >
+            SELECT LAST_INSERT_ID() AS value
+        </selectKey>
+    </insert>
+
+
+    <update id="update" parameterClass="userPermissionDO" >
+        UPDATE `user_permission` 
+        <dynamic prepend="SET" >
+            <isNotNull property="userId" prepend="," >
+                <![CDATA[
+                user_id = #userId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="permission" prepend="," >
+                <![CDATA[
+                permission = #permission#
+                ]]>
+            </isNotNull>
+            <isNotNull property="userCondition" prepend="," >
+                <![CDATA[
+                user_condition = #userCondition#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtCreate" prepend="," >
+                <![CDATA[
+                gmt_create = #gmtCreate#
+                ]]>
+            </isNotNull>
+            <isNotNull property="gmtModify" prepend="," >
+                <![CDATA[
+                gmt_modify = #gmtModify#
+                ]]>
+            </isNotNull>
+            <isNotNull property="creatorId" prepend="," >
+                <![CDATA[
+                creator_id = #creatorId#
+                ]]>
+            </isNotNull>
+            <isNotNull property="modifierId" prepend="," >
+                <![CDATA[
+                modifier_id = #modifierId#
+                ]]>
+            </isNotNull>
+        </dynamic>
+        WHERE id = #id# 
+    </update>
+
+
+    <select id="findByPrimaryKey" parameterClass="java.lang.Long" resultMap="userPermissionDOResultMap">
+        SELECT 
+            <include refid="userPermissionDO_selectColumns" />
+         <![CDATA[  
+             FROM `user_permission` a1 WHERE id = #id#  
+         ]]>   
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterClass="java.lang.Long" >
+         <![CDATA[  
+            DELETE FROM `user_permission` WHERE id = #id#  
+         ]]>   
+    </delete>
+
+
+    <select id="countByExample" parameterClass="userPermissionDO" resultClass="java.lang.Integer">
+        SELECT COUNT(id) AS num FROM `user_permission`
+            <include refid="userPermissionDO_queryParams" />
+    </select>
+
+
+    <select id="listByExample" parameterClass="userPermissionDO" resultMap="userPermissionDOResultMap">
+        SELECT 
+            <include refid="userPermissionDO_selectColumns" />
+         FROM `user_permission` a1 
+            <include refid="userPermissionDO_queryParams" />
+    </select>
+
+
+    <select id="pageByExample" parameterClass="java.util.Map" resultMap="userPermissionDOResultMap">
+        SELECT 
+            <include refid="userPermissionDO_selectColumns" />
+         FROM `user_permission` a1 
+            <include refid="userPermissionDO_queryParams" />
+        LIMIT #pageStart#, #pageSize#
+    </select>
+
+
+    <select id="deleteByExample" parameterClass="userPermissionDO" resultClass="java.lang.Integer">
+        DELETE FROM `user_permission`
+            <include refid="userPermissionDO_queryParams" />
+    </select>
+
+
+
+
+
+
+
+
+
+</sqlMap>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="byName">
+
+	<import resource="classpath:dal/dal-dao.xml" />
+	<import resource="classpath:dal/dal-datasource.xml" />
+	
+    <bean id="userService" class="org.fabrelab.sitefactory.service.UserService">
+    </bean>
+    <bean id="groupService" class="org.fabrelab.sitefactory.service.GroupService">
+    </bean>
+    <bean id="siteService" class="org.fabrelab.sitefactory.service.SiteService">
+    </bean>
+	<bean id="articleService" class="org.fabrelab.sitefactory.service.ArticleService">
+    </bean>
+    <bean id="postService" class="org.fabrelab.sitefactory.service.PostService">
+    </bean>
+    <bean id="commentService" class="org.fabrelab.sitefactory.service.CommentService">
+    </bean>
+    <bean id="tagService" class="org.fabrelab.sitefactory.service.TagService">
+    </bean>
+    <bean id="questionService" class="org.fabrelab.sitefactory.service.QuestionService">
+    </bean>
+    <bean id="answerService" class="org.fabrelab.sitefactory.service.AnswerService">
+    </bean>
+    <bean id="eventService" class="org.fabrelab.sitefactory.event.service.EventService">
+    	<property name="handlers">
+			<list>
+				<ref bean="articleEventHandler" />
+                <ref bean="postEventHandler" />
+                <ref bean="groupEventHandler" />
+                <ref bean="siteEventHandler" />
+                <ref bean="userEventHandler" />
+                <ref bean="tagEventHandler" />
+                <ref bean="commentEventHandler" />
+                <ref bean="questionEventHandler" />
+                <ref bean="answerEventHandler" />
+			</list>
+		</property>
+    </bean>
+    <bean id="articleEventHandler" class="org.fabrelab.sitefactory.event.handler.ArticleEventHandler">
+    </bean>
+    <bean id="questionEventHandler" class="org.fabrelab.sitefactory.event.handler.QuestionEventHandler">
+    </bean>
+    <bean id="answerEventHandler" class="org.fabrelab.sitefactory.event.handler.AnswerEventHandler">
+    </bean>
+    <bean id="postEventHandler" class="org.fabrelab.sitefactory.event.handler.PostEventHandler">
+    </bean>
+    <bean id="groupEventHandler" class="org.fabrelab.sitefactory.event.handler.GroupEventHandler">
+    </bean>
+    <bean id="siteEventHandler" class="org.fabrelab.sitefactory.event.handler.SiteEventHandler">
+    </bean>
+    <bean id="userEventHandler" class="org.fabrelab.sitefactory.event.handler.UserEventHandler">
+    </bean>
+    <bean id="tagEventHandler" class="org.fabrelab.sitefactory.event.handler.TagEventHandler">
+    </bean>
+    <bean id="commentEventHandler" class="org.fabrelab.sitefactory.event.handler.CommentEventHandler">
+    </bean>
+</beans>
