@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+	<div class="container_24 xl app_navs app_nav_${navClass}" >
+		<div class="app_nav" > 
+			<t:pagelink id="app_nav_article" page="group/Posts" context="[targetGroup.id,0]" >帖子</t:pagelink>
+			<t:pagelink id="app_nav_member" page="group/Users" context="[targetGroup.id,0]" >成员</t:pagelink>
+	    </div>    
+	</div>
+</html>
+

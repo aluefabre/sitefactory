@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+    	<style>
+			form {
+				margin: 0;
+			}
+			textarea {
+				display: block;
+			}
+		</style>
+		<script charset="utf-8" src="${context:static/js/kindeditor-min.js}"></script>
+		<script>
+			var editor;
+			KindEditor.ready(function(K) {
+				editor = K.create('textarea[name="answerContent"]', {
+					resizeType : 0,
+					allowPreviewEmoticons : false,
+					allowImageUpload : false,
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+			});
+		</script>  
+		<div class="para_block_xl">
+			<div class="para_block_xl_content" style="margin-left:15px;margin-right:17px">
+		  		<form t:type="form" t:id="form" context="targetQuestion.id" style="width:100%; padding-top:15px;" >
+			        <t:errors banner="message:form-error-banner"/>
+			        <t:textarea name="answerContent" style="width:100%;height:180px;" class="xl" t:id="answerContent">
+						
+					</t:textarea>
+			        <input type="submit" value="提交答案"  style="float:right;width:90px;height:30px;margin-top:10px;"/>
+		  	  	</form>
+			</div>
+		</div>
+
+</html>

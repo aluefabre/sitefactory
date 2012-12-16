@@ -1,0 +1,22 @@
+
+.entity_top_head { height:40px; }
+
+.entity_topleft_title{float:left; margin-top:18px; margin-left:15px;}
+.entity_topleft_title a {font-weight:bold; color:#0f6bb2; text-decoration: none;}
+.entity_list_content{ margin-top:15px;  margin-left:15px; margin-right:15px; padding-bottom:15px; border-bottom: 1px dotted #000;color:#444;}
+
+.article_content{ margin-top:15px;  margin-left:15px; margin-right:15px; padding-bottom:15px;}
+
+.entity_topright_op { float:right;  margin-right: 8px; margin-top: 15px; padding: 3px 5px;border: 1px solid #CCCCCC; border-radius: 3px 3px 3px 3px; }
+
+.entity_topright_op a {
+    color: #1B676B; 
+    text-decoration: none;
+}
+
+.create_domain_btn{
+	  border-radius: 3px 3px 3px 3px; margin-left:54px;  margin-left:54px;
+	  letter-spacing: 2px;   line-height: 60px; 
+	  padding: 10px 10px 10px 10px;  text-decoration: none; color: #F5F5F5;
+	  background-color: #75c401;
+}

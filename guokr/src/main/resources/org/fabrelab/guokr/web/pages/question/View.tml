@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html t:type="layout" t:title="我的文章 - 职业帮 -- 分享知识 积累人脉 "
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+    <div class="grid_6 l main_left">
+		<t:question.opSidebar ></t:question.opSidebar> 
+		<t:question.tagSidebar ></t:question.tagSidebar> 
+	</div>
+	<div class="grid_18 main_right" >
+		<div class="para_block_free">
+			<div class="para_start xl"><p>阅读文章</p></div>
+			
+       		 <div class="entity_top_head">
+				<div class="entity_topleft_title l"><t:pagelink page="question/View" context="question.id">${question.title}</t:pagelink></div>
+		
+				<div class="entity_topright_op l">
+					<t:pagelink page="question/Edit" context="question.id">编辑</t:pagelink>
+				</div>
+				<div class="entity_topright_op l">
+					<t:actionlink t:id="delete" t:context="question.id"  onclick="return confirm('您确认要删除吗？')">删除</t:actionlink>
+				</div>
+		
+			 </div>
+			 
+       		 <div class="article_content xl" >
+				<t:outputraw value="question.content"/>
+			 </div>
+			 <t:answer.listBlock t:targetQuestion="question"></t:answer.listBlock> 
+			 <t:answer.createBlock t:targetQuestion="question"></t:answer.createBlock> 
+		</div>
+	</div>	
+
+</html>

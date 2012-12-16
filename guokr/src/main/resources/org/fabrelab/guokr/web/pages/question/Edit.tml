@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html t:type="layout" t:title="我的文章 - 职业帮 -- 分享知识 积累人脉 "
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+    	<style>
+			form {
+				margin: 0;
+			}
+			textarea {
+				display: block;
+			}
+		</style>
+		<script charset="utf-8" src="${context:static/js/kindeditor-min.js}"></script>
+
+		<script>
+			var editor;
+			KindEditor.ready(function(K) {
+				editor = K.create('textarea[name="content"]', {
+					resizeType : 0,
+					allowPreviewEmoticons : false,
+					allowImageUpload : false,
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+			});
+		</script>  
+   	<div class="grid_6 l main_left">
+    	<t:question.tagSidebar></t:question.tagSidebar> 
+	</div> 
+	<div class="grid_18 main_right" >
+		<div class="para_block_xl">
+			<div class="para_start xl"><p>编辑文章</p></div>
+			<div class="para_block_xl_content" style="margin-left:15px;margin-right:17px">
+		  		<form t:type="form" t:id="form" style="width:100%;padding-top:15px;">
+			        <t:errors banner="message:form-error-banner"/>
+			      
+	        		<t:label for="title"  style="height:25px;margin-bottom:20px;font-size:16px" >标题</t:label>:&nbsp;&nbsp;
+	        	
+	        		<input t:type="TextField" t:id="title" t:validate="required,minlength=3" size="60" style="height:25px;margin-bottom:20px;font-size:15px"/> <br/>
+	       
+	        		<t:textarea name="content" style="width:100%;height:800px;" class="xl" t:id="content" >
+				  	</t:textarea>
+			        <input type="submit" value="提交"  style="float:right;width:70px;height:30px;margin-top:10px;"/>
+		  	  	</form>
+			</div>
+			<div class="para_end m"><p></p></div>
+		</div>
+	</div>	
+
+</html>

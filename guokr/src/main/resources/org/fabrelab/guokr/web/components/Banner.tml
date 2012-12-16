@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+	<div id="banner" class="container_24">
+		 <div id="col-top"></div>
+		 <div id="col" class="container_24">
+		    <div class="grid_8">
+				<a href="#"><img src="${context:static/image/what.png}" width="80px" alt="" class="banner_icon"/></a>
+				<div class="banner_text">
+		   			<p class="banner_text_title xl">什么是职业帮</p>
+		   			<div style="height:15px" ></div>
+		   			<p class="l">一个帮助职业人进行知识共享、交流互动和协同创造的社区</p>
+		   		</div>
+		    </div>
+		 	<div class="grid_8">
+		 		<a href="#"><img src="${context:static/image/why.png}" width="80px"  alt="" class="banner_icon"/></a>
+		   		<div class="banner_text">
+		   			<p class="banner_text_title xl">为什么上职业帮</p>
+		   			<div style="height:12px" ></div>
+		   			<p class="l">* 共享知识</p>
+		   			<p class="l">* 拓展人脉</p>
+		   			<p class="l">* 树立个人品牌</p>
+		   		</div>
+		    </div>
+		  	<div class="grid_8">
+		  		<a href="#"><img src="${context:static/image/how.png}" width="80px"  alt="" class="banner_icon"/></a>
+		      	<div class="banner_text">
+		   			<p class="banner_text_title xl">如何玩转职业帮</p>
+		   			<div style="height:12px" ></div>
+		   			<p class="l">* 随便看看</p>
+		   			<p class="l">* 注册用户</p>
+		   			<p class="l">* 加入/开创帮派</p>
+		   		</div>
+		    </div>
+		 </div>
+		 <div id="col-bottom"></div>
+	</div>
+</html>  

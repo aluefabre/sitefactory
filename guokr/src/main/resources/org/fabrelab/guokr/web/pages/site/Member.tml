@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html t:type="layout" title="About newapp"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+	<t:site.header t:targetSiteId="targetSite.id"></t:site.header>
+	<t:site.nav t:targetSiteId="targetSite.id"></t:site.nav>
+	
+	
+	<div class="grid_6 l main_left">
+		<div class="side_block_m">
+			<div class="side_block_start"><p>成员</p></div>
+			
+			<div class="side_block_m_content"></div>
+		</div>
+	</div>	
+    <div class="grid_18 l main_right" >
+		<div class="para_block_xl">
+			<div class="para_start">
+				<div class="para_btns">
+					<a class="para_bt_left" href="#">热点</a>
+			    	<a class="para_bt_right" href="#">最新</a>
+		    	</div>
+			</div>
+			<div class="para_block_xl_content"></div>
+			<div class="para_end"><p>[1]&nbsp; [2]&nbsp; [3]&nbsp; [4]&nbsp; [5]&nbsp; [6]&nbsp; [7]&nbsp; [8]&nbsp; [9]&nbsp; [10]&nbsp; 更多>></p></div>
+		</div>
+	</div>
+
+	
+</html>

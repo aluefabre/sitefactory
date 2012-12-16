@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html t:type="layout" title="newapp Index"
+      t:sidebarTitle="Current Time"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+	<t:groups.groupTags></t:groups.groupTags>
+    <div class="grid_6 l main_left">
+		<t:groups.opSidebar></t:groups.opSidebar> 
+	</div>	 
+ 	<div class="grid_18 main_right" >
+		<div class="para_block_l">
+			<div class="para_start xl"><p>待审核小组</p></div>
+			<div class="para_block_l_content xl">
+				<t:loop source="groups" value="group">
+					<div class="entity_top_head">
+						<div class="entity_topleft_title">${group.title}</div>
+						<div class="follow_block_btns"><t:actionlink t:id="accept" t:context="group.id">通过</t:actionlink></div>
+						<div class="follow_block_btns"><t:actionlink t:id="object" t:context="group.id">拒绝</t:actionlink></div>
+					</div>
+					<div class="entity_list_content">${group.description}</div>
+				</t:loop>
+			</div>
+			<div class="para_end m"><p>更多精彩></p></div>
+		</div>
+	</div>
+
+
+</html>

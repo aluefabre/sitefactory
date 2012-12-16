@@ -1,0 +1,32 @@
+#html_body{  background-color:#FcFcFc }
+
+.main_left{margin-left:0px; margin-top:0px}
+
+.main_right {margin-left:14px; margin-right:0px}
+
+#header {height:50px; padding:3px 0px 3px 0px; background-color:#d4e9f9}
+	#logo{ padding-top: 0px}
+	#nav a{display: block; float: left; margin-top:3px; margin-left:12px;  padding: 8px 10px 8px 9px; text-decoration: none;  font-weight:bold; color: #777;}
+	
+	#nav a:hover, #user a:hover {color: #0F6BB2;}
+		
+	#header.index #nav #nav_index,#header.people #nav #nav_people,#header.person #nav #nav_people,#header.content #nav #nav_content,#header.domain #nav #nav_domain, #header.domains #nav #nav_domain {
+		color: #0F6BB2; border-bottom:4px solid #0F6BB2;
+	}
+	
+	#user a.bt_reg  {
+	    border-radius: 3px 3px 3px 3px;   float: right;
+	    font-family: 宋体;  height: 30px;  letter-spacing: 2px;   line-height: 30px;   margin: 10px 8px 0 0;
+	    overflow: hidden;  padding: 0 10px 0 13px;  text-decoration: none; color: #F5F5F5;
+		background-color: #75c401; }
+	#user a.bt_reg:hover{ background-color: #C0E7F3; }
+	
+	#user a.bt_login  {
+	    border-radius: 3px 3px 3px 3px;   float: right;
+	    font-family: 宋体;  height: 30px;  letter-spacing: 2px;   line-height: 30px;   margin: 10px 8px 0 0;
+	    overflow: hidden;  padding: 0 10px 0 13px;  text-decoration: none; color: #F5F5F5;
+		background-color: #89b3d8; }
+	#user a.bt_login:hover{  background-color: #C0E7F3; }
+
+#footer {height:100px; margin-top:15px; padding:3px 0px 3px 0px; border-top:2px solid #dfdfdf; color:#505050} 
+

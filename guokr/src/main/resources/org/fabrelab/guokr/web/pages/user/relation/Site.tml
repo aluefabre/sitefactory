@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html t:type="layout" title="newapp Index"
+      t:sidebarTitle="Current Time"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+    <t:user.header  t:targetUserId="targetUser.id"></t:user.header>
+	<t:user.nav t:targetUserId="targetUser.id"></t:user.nav>
+
+	<div class="grid_6 main_left l" >
+		<t:user.relationSidebar t:targetUserId="targetUser.id"></t:user.relationSidebar>
+		<div class="side_block_l">
+			<div class="side_block_start"><p>标签</p></div>
+			<div class="side_block_l_content"></div>
+		</div>
+	</div>
+ 	<div class="grid_18 main_right" >
+		<div class="para_block_l">
+			<div class="para_start xl"><p>活跃帮派</p></div>
+			<div class="para_block_l_content xl">
+				<t:loop source="groups" value="group">
+					<div class="entity_top_head">
+						<div class="entity_topleft_title"><t:pagelink page="group/Index" t:context="group.id">${group.title}</t:pagelink></div>
+						<div class="follow_block_btns"><t:actionlink t:id="delete" t:context="group.id"  >删除</t:actionlink></div>
+					</div>
+				
+					<div class="entity_list_content">${group.description}</div>
+					
+				</t:loop>
+			
+			</div>
+			<div class="para_end m"><p>更多精彩></p></div>
+		</div>
+	</div>
+
+
+</html>

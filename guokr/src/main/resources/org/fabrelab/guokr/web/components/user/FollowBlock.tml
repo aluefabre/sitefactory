@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+  
+		<t:if test="isLoggedIn">
+			<t:if test="!isMyself">
+				<t:if test="isFollowMe">
+				    <div class="follow_block_btns"><t:actionlink t:id="RemoveFollowMe" t:context="targetUser.id"  onclick="return confirm('您确认要删除粉丝吗？')">删除粉丝</t:actionlink></div> 
+				</t:if>
+				<t:if test="isIFollow">
+		            <div class="follow_block_btns"><t:actionlink t:id="RemoveIFollow" t:context="targetUser.id"  onclick="return confirm('您确认要取消关注吗？')">- 取消关注</t:actionlink></div>
+				    <p:else>
+				    	<div class="follow_block_btns"><t:actionlink t:id="AddIFollow" t:context="targetUser.id" >+ 关注</t:actionlink></div> 
+		            </p:else>
+			    </t:if>
+		    </t:if>
+	    </t:if>
+		
+</html>

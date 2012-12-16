@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+	<div class="container_24 xl app_navs app_nav_${navClass}" >
+		<div class="app_nav"> 
+			<t:pagelink id="app_nav_index" page="user/View" context="targetUser.id">首页</t:pagelink>
+	    </div>    
+	    <div class="app_nav" > 
+			<t:pagelink id="app_nav_relation" page="user/relation/Site" context="[targetUser.id, 0]">关注</t:pagelink>
+	    </div> 
+	 	<div class="app_nav" > 
+			<t:pagelink id="app_nav_article" page="user/post/Publish" context="[targetUser.id, 0]">帖子</t:pagelink>
+	    </div>
+	    <div class="app_nav"> 
+			<t:pagelink id="app_nav_group" page="user/question/List" context="[targetUser.id, 0]">问答</t:pagelink>
+	    </div> 
+	    <div class="app_nav"> 
+			<t:pagelink id="app_nav_group" page="user/article/List" context="[targetUser.id, 0]">文章</t:pagelink>
+	    </div> 
+	</div>
+</html>
+

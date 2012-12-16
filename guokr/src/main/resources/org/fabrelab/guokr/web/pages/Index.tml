@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html t:type="layout" title="newapp Index"
+      t:sidebarTitle="Current Time"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+       
+        <t:banner></t:banner>
+        <div class="grid_6 l main_left">
+			<div class="side_block_l">
+				<div class="side_block_start"><p>登陆</p></div>
+				<div class="login_block_content"></div>
+			</div>
+			<div class="side_block_l">
+				<div class="side_block_start"><p>新闻</p></div>
+				<div class="news_block_content"></div>
+			</div>
+			<div class="side_block_l">
+				<div class="side_block_start"><p>广告</p></div>
+				<div class="ad_block_content"></div>
+			</div>
+		</div>	
+  		<div class="grid_18 main_right" >
+			<div class="para_block_m">
+				<div class="para_start xl" ><p>最活跃的帮派</p></div>
+				<div class="para_block_m_content"></div>
+				<div class="para_end m"><p>更多精彩></p></div>
+			</div>
+			<div class="para_block_m">
+				<div class="para_start xl"><p>最新鲜的内容</p></div>
+				<div class="para_block_m_content"></div>
+				<div class="para_end m"><p>更多精彩></p></div>
+			</div>
+			<div class="para_block_m">
+				<div class="para_start xl"><p>最积极的用户</p></div>
+				<div class="para_block_m_content"></div>
+				<div class="para_end m"><p>更多精彩></p></div>
+			</div>
+		</div>
+
+
+</html>

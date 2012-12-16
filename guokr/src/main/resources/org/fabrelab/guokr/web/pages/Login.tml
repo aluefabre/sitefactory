@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html t:type="layout" title="About newapp"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+	
+    
+    <div class="login_form xxl">
+	    <t:if test="isFromJoin">
+			恭喜您注册成功，请登录。
+		</t:if>
+     	<div class="i_title xxl">用户登录</div>
+ 		<t:beaneditform t:id="loginForm" object="bean" submitlabel="message:login-user">
+ 			<t:parameter name="email">
+		      <t:label for="email"/>
+		      <t:textfield t:id="email" value="bean.email"/>
+		    </t:parameter>
+		    <t:parameter name="password">
+		      <t:label for="password"/>
+		      <t:passwordfield t:id="password" value="bean.password"/>
+		    </t:parameter>
+ 		</t:beaneditform>
+    </div>
+
+</html>

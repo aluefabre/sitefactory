@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+   	<t:if test="targetSite">
+   		<div class="side_block_m">
+			<div class="side_block_start"><p>所属主题站</p></div>
+			<div class="side_block_m_content">
+				<div class="sidebar_nav"> 
+					<t:pagelink id="sidebar_nav_index" page="site/article/List" context="[targetSite.id, 0]">${targetSite.title}</t:pagelink>
+			    	<t:if test="isRegular">
+			    		<div class="follow_block_btns">[已收录]</div> 
+			    	</t:if>
+			    	<t:if test="isPending">
+			    		<div class="follow_block_btns">
+			    			<t:pagelink id="sidebar_nav_index" page="site/article/Pending" context="[targetSite.id, 0]">[审核中]</t:pagelink>
+			    		</div> 
+			    	</t:if>
+			    	<div class="follow_block_btns"><t:actionlink t:id="Cancle" t:context="article.id" >[取消投递]</t:actionlink></div> 
+			    </div>  
+			</div>
+		</div>
+		<p:else>
+			<div class="side_block_m">
+				<div class="side_block_start"><p>投递到主题站</p></div>
+				<div class="side_block_m_content">
+				<div class="sidebar_nav"> 
+					 <t:form t:id="submitArticleForm"  context="article.id"> 	
+						<t:select t:id="siteId" validate="required" value="selectedSite" model="siteSelectModel" />
+ 						 <input t:type="submit" t:id="submit" value="投递"/>
+			 		</t:form>
+				</div>
+				</div>
+			</div>
+		</p:else>
+	</t:if>
+	
+</html>
+

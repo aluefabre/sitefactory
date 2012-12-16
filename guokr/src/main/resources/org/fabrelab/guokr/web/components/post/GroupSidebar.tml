@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+	    
+   	<t:if test="targetGroup">
+   		<div class="side_block_m">
+			<div class="side_block_start"><p>所属小组</p></div>
+			<div class="side_block_m_content">
+				<div class="sidebar_nav"> 
+					<t:pagelink id="sidebar_nav_index" page="group/Posts" context="[targetGroup.id, 0]">${targetGroup.title}</t:pagelink>
+			    </div>  
+			</div>
+		</div>
+	</t:if>
+	
+</html>
+

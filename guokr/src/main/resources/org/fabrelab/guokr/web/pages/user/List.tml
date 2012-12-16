@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html t:type="layout" t:title="个人空间 - 职业帮 -- 分享知识 积累人脉 " 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+  	
+  	<t:users.listNav></t:users.listNav>  
+  	<div class="grid_6 main_left l" >
+		<div class="side_block_l">
+			<div class="side_block_start"><p>标签</p></div>
+			<div class="side_block_l_content"></div>
+		</div>
+	</div>	    
+	<div class="grid_18 l main_right">
+		<div class="para_block_xl">
+			<div class="para_start xl"><p>活跃用户</p></div>
+			<t:users.listBlock t:users="users"></t:users.listBlock>
+			<div class="para_end m"><p>更多精彩></p></div>
+		</div>
+	</div>
+
+
+</html>

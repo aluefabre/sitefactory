@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+	<div class="grid_10">
+		<div style="margin-top:10px; margin-left:14px;  ">
+			<span class="xxl" style="font-weight: bold; line-height:20px; color:#1b5eaa;">
+				<t:pagelink page="user/View" context="targetUser.id">${targetUser.name}</t:pagelink>
+			</span>
+			<span class="xl" style=" margin-left:20px; line-height:20px; color:#1b676b;">
+				${targetUser.profession}
+			</span>
+		</div>
+		<div class="l" style="margin-top:12px; margin-left:14px; color:#555; ">
+			<span style="margin-right:14px;">
+				Live@<span style="color:#1b5eaa; font-weight: bold;">${targetUser.location}</span>
+			</span>
+			<span style="margin-right:14px;">
+				Work@<span style="color:#1b5eaa; font-weight: bold;">${targetUser.company}</span>
+			</span> 
+			<span style="margin-right:14px;">
+				工作经验<span style="color:#1b5eaa; font-weight: bold;">3年</span>
+			</span>         
+		</div>
+	</div>	
+	<div class="l"><t:user.followBlock t:targetUser="targetUser" ></t:user.followBlock></div>
+	<div class="user_block"></div>
+</html>

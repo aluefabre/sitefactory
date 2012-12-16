@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html t:type="layout" t:title="个人空间 - 职业帮 -- 分享知识 积累人脉 "  t:targetUserId="targetUser.id"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+    <t:user.header  t:targetUserId="targetUser.id"></t:user.header>
+	<t:user.nav t:targetUserId="targetUser.id"></t:user.nav>  
+	<div class="grid_6 l main_left">
+		<div class="side_block_m">
+			<div class="side_block_start"><p>参加的帮派</p></div>
+			<div class="side_block_m_content"></div>
+		</div>
+		<div class="side_block_m">
+			<div class="side_block_start"><p>我的标签</p></div>
+			<div class="side_block_m_content"></div>
+		</div>
+		<div class="side_block_m">
+			<div class="side_block_start"><p>我的好友</p></div>
+			<div class="side_block_m_content"></div>
+		</div>
+	</div>
+	<div class="grid_18 main_right" >
+		<div class="para_block_l">
+			<div class="para_start xl"><p>我的原创</p></div>
+			<div class="para_block_l_content"></div>
+			<div class="para_end m"><p>更多精彩></p></div>
+		</div>
+	
+		<div class="para_block_l">
+			<div class="para_start xl"><p>我的转载</p></div>
+			<div class="para_block_l_content"></div>
+			<div class="para_end m"><p>更多精彩></p></div>
+		</div>
+	</div>	
+
+</html>
