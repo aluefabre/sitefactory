@@ -104,8 +104,8 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.fabrelab.pagekit</groupId>
-			<artifactId>pager-util</artifactId>
+			<groupId>org.fabrelab.sitefactory</groupId>
+			<artifactId>siteutil</artifactId>
 			<version>1.0</version>
 		</dependency>
 	</dependencies>
