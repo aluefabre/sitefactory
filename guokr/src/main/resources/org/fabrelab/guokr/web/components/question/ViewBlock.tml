@@ -3,11 +3,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
       xmlns:p="tapestry:parameter">
-			<div class="entity_top_head xl">
-				<div class="entity_topleft_title l"><t:pagelink page="question/View" context="question.id">${question.title}</t:pagelink></div>
-				<div class="follow_block_btns"><t:actionlink t:id="delete" t:context="question.id">删除</t:actionlink></div>
-			
-			</div>
-			<div class="entity_list_content xl"></div>
+	<div class="entity_top_head xl">
+		<div class="entity_topleft_title l"><t:pagelink page="question/View" context="question.id">${question.title}</t:pagelink></div>
+		<div class="follow_block_btns"><t:actionlink t:id="delete" t:context="question.id">删除</t:actionlink></div>
+	</div>
+	<div class="entity_top_head xl">
+		<div class="entity_topleft_title l">
+			<t:pagelink page="user/View" context="creator.id">${creator.name}</t:pagelink>
+		</div>
+		<div class="follow_block_btns"> ${question.gmtCreate}</div>
+	</div>
+	<div class="entity_list_content xl"></div>
 </html>
 
