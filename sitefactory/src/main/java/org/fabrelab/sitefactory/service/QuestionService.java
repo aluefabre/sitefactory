@@ -10,6 +10,7 @@ import org.fabrelab.sitefactory.dal.dataobject.QuestionDO;
 import org.fabrelab.sitefactory.dal.dataobject.QuestionRelationDO;
 import org.fabrelab.sitefactory.event.model.DeleteQuestionEvent;
 import org.fabrelab.sitefactory.event.model.NewQuestionEvent;
+import org.fabrelab.sitefactory.event.model.NewQuestionRelationEvent;
 import org.fabrelab.sitefactory.event.service.EventService;
 import org.fabrelab.sitefactory.exception.NoPermissionException;
 import org.fabrelab.sitefactory.util.LongUtils;
@@ -54,6 +55,8 @@ public class QuestionService extends QuestionDAOImpl {
 		relation.setCreatorId(userId);
 		relation.setModifierId(userId);
 		questionRelationDAO.insert(relation);
+
+		eventService.fireEvent(new NewQuestionRelationEvent(relation));
 	}
 	
 	public void setQuestionDAO(QuestionDAO questionDAO) {

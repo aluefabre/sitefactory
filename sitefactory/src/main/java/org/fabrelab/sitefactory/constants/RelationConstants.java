@@ -1,4 +1,4 @@
-package org.fabrelab.guokr.web.constants;
+package org.fabrelab.sitefactory.constants;
 
 public class RelationConstants {
 	public static final String FOLLOW = "FOLLOW";

@@ -3,14 +3,16 @@ package org.fabrelab.sitefactory.event.handler;
 import java.util.List;
 
 import org.fabrelab.pagekit.PageInfo;
+import org.fabrelab.sitefactory.constants.RelationConstants;
 import org.fabrelab.sitefactory.dal.dao.QuestionRelationDAO;
 import org.fabrelab.sitefactory.dal.dataobject.QuestionDO;
 import org.fabrelab.sitefactory.dal.dataobject.QuestionRelationDO;
 import org.fabrelab.sitefactory.dal.dataobject.UserDO;
-import org.fabrelab.sitefactory.event.model.DeleteQuestionEvent;
 import org.fabrelab.sitefactory.event.model.DeleteEntityEvent;
+import org.fabrelab.sitefactory.event.model.DeleteQuestionEvent;
 import org.fabrelab.sitefactory.event.model.Event;
 import org.fabrelab.sitefactory.event.model.NewQuestionEvent;
+import org.fabrelab.sitefactory.event.model.NewQuestionRelationEvent;
 import org.fabrelab.sitefactory.service.QuestionService;
 import org.fabrelab.sitefactory.service.UserService;
 
@@ -41,6 +43,21 @@ public class QuestionEventHandler extends EventHandler {
 
 		if(event instanceof NewQuestionEvent){
 			handleNewQuestionEvent((NewQuestionEvent)event);
+		}
+		
+		if(event instanceof NewQuestionRelationEvent){
+			handleNewQuestionRelationEvent((NewQuestionRelationEvent)event);
+		}
+	}
+
+	private void handleNewQuestionRelationEvent(NewQuestionRelationEvent event) {
+		if("User".equals(event.getRelation().getRelatedType())
+				&& RelationConstants.FOLLOW.equals(event.getRelation().getRelation())){
+			// increase follow count;
+		}
+		if("Answer".equals(event.getRelation().getRelatedType())
+				&& RelationConstants.REGULAR.equals(event.getRelation().getRelation())){
+			// increase answer count;
 		}
 	}
 

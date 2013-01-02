@@ -11,6 +11,11 @@ public class QuestionDO implements Serializable {
     private java.lang.String title;
     private java.lang.String content;
     private java.lang.String type;
+    
+    private java.lang.Integer answerCounter;
+    private java.lang.Integer followCounter;
+    private java.lang.Long bestAnswerId;
+    
     public QuestionDO() {
         super();
     }

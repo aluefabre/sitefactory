@@ -12,6 +12,7 @@
 	<link rel="stylesheet" media="screen,projection" type="text/css" href="${context:static/css/layout.css}" />
 	<link rel="stylesheet" media="screen,projection" type="text/css" href="${context:static/css/beanform.css}" />
 	<link rel="stylesheet" media="screen,projection" type="text/css" href="${context:static/css/article.css}" />
+	<link rel="stylesheet" media="screen,projection" type="text/css" href="${context:static/css/question.css}" />
 </head>
 <body id="html_body">	
 	<t:header></t:header>

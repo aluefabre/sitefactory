@@ -9,8 +9,10 @@ import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.fabrelab.guokr.web.pages.Login;
 import org.fabrelab.guokr.web.services.MyCookieManager;
 import org.fabrelab.sitefactory.dal.dataobject.QuestionDO;
+import org.fabrelab.sitefactory.dal.dataobject.UserDO;
 import org.fabrelab.sitefactory.exception.NoPermissionException;
 import org.fabrelab.sitefactory.service.QuestionService;
+import org.fabrelab.sitefactory.service.UserService;
 
 public class ViewBlock {
 
@@ -27,6 +29,8 @@ public class ViewBlock {
 	@Inject
 	private QuestionService questionService;
 
+	@Inject
+	private UserService userService;
 	
 	Link onActionFromDelete(EventContext context) throws NoPermissionException {
 		if(cookieManager.getCurrentUserId()==null){
@@ -36,5 +40,9 @@ public class ViewBlock {
 		Long currentUserId = cookieManager.getCurrentUserId();
 		questionService.deleteQuestionById(currentUserId, questionId);
 		return null;
+	}
+	
+	public UserDO getCreator(){
+		return userService.getUserById(question.getCreatorId());
 	}
 }

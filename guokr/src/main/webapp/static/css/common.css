@@ -1,3 +1,7 @@
+.xxxxxxxxl{font-size:24px}
+.xxxxxxxl{font-size:22px}
+.xxxxxxl{font-size:20px}
+.xxxxxl{font-size:18px}
 .xxxxl{font-size:16px}
 .xxxl{font-size:15px}
 .xxl{font-size:14px}
@@ -8,6 +12,16 @@
 .xs{font-size:9px}
 .xxs{font-size:8px}
 
+.fleft{float:left;}
+.fright{float:right; }
+.clear {clear:both; }
+
+.text-center {text-align: center;}
+
+.mgll{margin-left:7px}
+.mglm{margin-left:5px}
+.mgrl{margin-right:7px}
+.mgrm{margin-right:5px}
 
 .para_start{height:30px; background-color:#f0f9fd; }
 .para_start p {margin-left:10px; padding:5px 0px 3px 20px; color:#0f6bb2; border-left:4px solid #0f6bb2;}
@@ -50,7 +64,7 @@
 {background-color: #3f89c3; color: #FFF;}
 
 #user_card {height:70px;  margin-top:10px; background-color:#FFF; border-radius: 12px 12px 12px 12px;border:1px solid #dfdfdf;}
-.follow_block_btns{border:1px solid #CCC; border-radius: 3px 3px 3px 3px; float:right; margin-right:8px; margin-top:15px; padding:3px 5px 3px 5px; }
+.follow_block_btns{border:1px solid #CCC; border-radius: 3px 3px 3px 3px; padding:3px 5px 3px 5px; }
 .follow_block_btns a{text-decoration: none; color:#1b676b;}
 .user_block{height:75px; border-bottom: 1px dotted #000;color:#444; margin-left:15px; margin-right:15px;}
 

@@ -9,8 +9,8 @@ import org.fabrelab.sitefactory.dal.dao.UserDAO;
 import org.fabrelab.sitefactory.dal.dao.UserRelationDAO;
 import org.fabrelab.sitefactory.dal.dataobject.UserDO;
 import org.fabrelab.sitefactory.dal.dataobject.UserRelationDO;
-import org.fabrelab.sitefactory.event.model.DeleteFollowEvent;
-import org.fabrelab.sitefactory.event.model.NewFollowUserEvent;
+import org.fabrelab.sitefactory.event.model.DeleteUserRelationEvent;
+import org.fabrelab.sitefactory.event.model.NewUserRelationEvent;
 import org.fabrelab.sitefactory.event.service.EventService;
 
 public class UserService {
@@ -70,7 +70,6 @@ public class UserService {
 			createFriendship(userAId, userBId);
 		}
 		
-		eventService.fireEvent(new NewFollowUserEvent(userAId, userBId));
 	}
 
 	private void createFriendship(Long userAId, Long userBId) {
@@ -119,6 +118,8 @@ public class UserService {
 		relation.setCreatorId(userId);
 		relation.setModifierId(userId);
 		userRelationDAO.insert(relation);
+
+		eventService.fireEvent(new NewUserRelationEvent(relation));
 	}
 	
 	public boolean isAFollowB(Long userAId, Long userBId) {
@@ -145,7 +146,6 @@ public class UserService {
 
 		UserRelationDO friend = createFriendRelation(userBId, userAId);
 		deleteRelation(friend);
-		eventService.fireEvent(new DeleteFollowEvent(userAId, userBId));
 	}
 
 	private void deleteRelation(UserRelationDO relation) {
@@ -156,6 +156,7 @@ public class UserService {
 		for (UserRelationDO userRelationDO : exsitingRecords) {
 			userRelationDAO.deleteByPrimaryKey(userRelationDO.getId());
 		}
+		eventService.fireEvent(new DeleteUserRelationEvent(relation));
 	}
 
 	public List<UserDO> getIFollowUsers(Long targetUserId, PageInfo page) {
