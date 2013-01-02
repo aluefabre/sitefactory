@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html t:type="layout" title="newapp Index"
+      t:sidebarTitle="Current Time"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+    <div class="grid_6 l main_left">
+		<t:questions.opSidebar></t:questions.opSidebar> 
+	</div>	 
+ 	<div class="grid_18 main_right" >
+		<div class="para_block_l">
+			<div class="para_start xl"><p>活跃帮派</p></div>
+			<t:questions.listBlock t:questions="questions"></t:questions.listBlock> 
+			<div class="para_end m"><p>更多精彩></p></div>
+		</div>
+	</div>
+
+
+</html>

@@ -5,17 +5,17 @@
 	<div id="header" class="${headerClass}" >
 		
 		<div class="container_24">
-			<div id="logo" class="grid_5">
+			<div id="logobar" class="grid_5">
 				<a href="#"><img src="${context:static/image/logo.png}" alt="" /></a>
 			</div>
-			<div id="nav" class="grid_13 xxl"> 
-				<t:pagelink id="nav_index" page="Index">主页</t:pagelink>
-				<t:pagelink id="nav_site" page="site/List">主题站</t:pagelink>
-				<t:pagelink id="nav_group" page="group/List">小组</t:pagelink>
-				<t:pagelink id="nav_user" page="user/List">果壳达人</t:pagelink>
-				<t:pagelink id="nav_ask" page="question/List">问答</t:pagelink>
+			<div id="navbar" class="grid_13 xxl"> 
+				<t:pagelink class="activable" activetrigger="/" page="Index">主页</t:pagelink>
+				<t:pagelink class="activable" activetrigger="/site/list.htm" page="site/List">主题站</t:pagelink>
+				<t:pagelink class="activable" activetrigger="/group/list.htm" page="group/List">小组</t:pagelink>
+				<t:pagelink class="activable" activetrigger="/user/list.htm" page="user/List">果壳达人</t:pagelink>
+				<t:pagelink class="activable" activetrigger="/question/list.htm" page="question/List">问答</t:pagelink>
 		    </div>    
-		    <div id="user" class="grid_6 l"> 
+		    <div id="userbar" class="grid_6 l"> 
 			    <t:if test="isLoggedIn">
 		            <t:pagelink class="bt_reg" page="Logout">登出</t:pagelink>
 			    	<div class="l" style="margin: 15px 18px 0 0; float:right">

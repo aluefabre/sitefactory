@@ -5,7 +5,7 @@
       xmlns:p="tapestry:parameter">
     <div class="grid_6 l main_left">
 		<t:question.opSidebar ></t:question.opSidebar> 
-		<t:question.tagSidebar ></t:question.tagSidebar> 
+		<t:questions.tagSidebar ></t:questions.tagSidebar> 
 	</div>
 	<div class="grid_18 main_right" >
 		<div class="para_block_free">
