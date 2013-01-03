@@ -6,8 +6,11 @@
 		<div class="side_block_m">
 			<div class="side_block_start"><p>操作</p></div>
 			<div class="side_block_m_content">
+			 	<div class="sidebar_nav"> 
+					<t:pagelink id="sidebar_nav_index" page="admin/tag/List" >标签列表</t:pagelink>
+			    </div>  
 				<div class="sidebar_nav"> 
-					<t:pagelink id="sidebar_nav_index" page="question/Create" >提问</t:pagelink>
+					<t:pagelink id="sidebar_nav_index" page="admin/tag/Create" >创建标签</t:pagelink>
 			    </div>  
 			</div>
 		</div>

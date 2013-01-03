@@ -3,7 +3,7 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
       xmlns:p="tapestry:parameter">
 	<div id="footer"  class="container_24 l">
-		<p class="f-right"> 意见反馈 | 关于我们  | 使用帮助</p>
+		<p class="f-right"> <t:pagelink page="admin/Index">站点管理</t:pagelink> | 意见反馈 | 关于我们  | 使用帮助</p>
 		<p>Copyright © 2011 <b>Fabre Lab</b>, All Rights Reserved</p>
 	</div>
 </html>  

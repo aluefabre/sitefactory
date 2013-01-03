@@ -21,19 +21,19 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>3.0.0.RELEASE</version>
+			<version>3.1.0.RELEASE</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>3.0.0.RELEASE</version>
+			<version>3.1.0.RELEASE</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>3.0.0.RELEASE</version>
+			<version>3.1.0.RELEASE</version>
 		</dependency>
 
 		<!-- Other dependencies -->
@@ -94,13 +94,19 @@
 		<dependency>
 			<groupId>org.apache.tapestry</groupId>
 			<artifactId>tapestry-spring</artifactId>
-			<version>5.2.5</version>
+			<version>5.3.3</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.apache.tapestry</groupId>
 			<artifactId>tapestry-core</artifactId>
-			<version>5.2.5</version>
+			<version>5.3.3</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.got5</groupId>
+			<artifactId>tapestry5-jquery</artifactId>
+			<version>3.3.0</version>
 		</dependency>
 		
 		<dependency>
@@ -149,5 +155,24 @@
 			</build>
 		</profile>
 	</profiles>
-
+	<repositories>
+		<repository>
+			<id>devlab722-repo</id>
+			<url>
+			http://nexus.devlab722.net/nexus/content/repositories/releases
+			</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>devlab722-snapshot-repo</id>
+			<url>
+			http://nexus.devlab722.net/nexus/content/repositories/snapshots
+			</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
 </project>

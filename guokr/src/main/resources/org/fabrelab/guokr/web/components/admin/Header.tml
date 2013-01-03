@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+	<div id="header" class="${headerClass}" >
+		<div class="container_24">
+			<div id="logobar" class="grid_5">
+				<a href="#"><img src="${context:static/image/logo.png}" alt="" /></a>
+			</div>
+			<div id="navbar" class="grid_13 xxl"> 
+				<t:pagelink class="activable" activetrigger="/admin/tag/list.htm" page="admin/tag/list">标签管理</t:pagelink>
+			
+		    </div>    
+		    <div id="userbar" class="grid_6 l"> 
+			    <t:if test="isLoggedIn">
+		            <t:pagelink class="bt_reg" page="Index">回到前台</t:pagelink>
+			    	<div class="l" style="margin: 15px 18px 0 0; float:right">
+			    		您好，<t:pagelink page="user/View" context="currentUser.id">${currentUser.name}</t:pagelink>
+			    	</div>	
+				    
+				    <p:else>
+				    	<t:pagelink class="bt_reg" page="user/Join">注册</t:pagelink>
+			  			<t:pagelink class="bt_login" page="Login">登陆</t:pagelink>       
+		            </p:else>
+			    </t:if>
+		    </div>
+		</div>
+		
+    </div>
+</html>  

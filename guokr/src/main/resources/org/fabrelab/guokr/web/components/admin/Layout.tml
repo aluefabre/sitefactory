@@ -15,10 +15,13 @@
 
 	<link rel="stylesheet" media="screen,projection" type="text/css" href="${context:static/css/question.css}" />
 
+	<script charset="utf-8" src="${context:static/js/jquery-1.8.3.min.js}"></script>
+	<script charset="utf-8" src="${context:static/js/active.js}"></script>
+	<script charset="utf-8" src="${context:static/js/main.js}"></script>
 
 </head>
 <body id="html_body" onload="mainModule.main();">	
-	<t:header></t:header>
+	<t:admin.header></t:admin.header>
 	
 	<div id="bd"  class="container_24">
 		<t:body></t:body>

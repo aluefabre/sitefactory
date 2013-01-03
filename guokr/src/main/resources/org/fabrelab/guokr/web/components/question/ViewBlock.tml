@@ -3,10 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
       xmlns:p="tapestry:parameter">
+
     <div class="question_list_block">
+    	<div class="question_list_left_part xl">
+    	</div>
 		<div class="question_list_main_part xl">
 			<div class="question_list_main_head">
-				<div class="fleft l question_title">
+				<div class="fleft xxl question_title">
 					<t:pagelink page="question/View" context="question.id">${question.title}</t:pagelink>
 				</div>
 				<div class="fright l">
@@ -16,40 +19,29 @@
 			</div>
 			<div class="question_list_main_head">
 				<div class="fleft l" >
-					<t:pagelink page="user/View" context="creator.id">${creator.name}</t:pagelink> 提问 
+					<t:pagelink page="user/View" context="creator.id">${creator.name}</t:pagelink> 提问  |
+					23 个答案 | 23 人关注 | ${question.gmtCreate} 
 				</div>
 				<div class="fright l">
-					${question.gmtCreate} 
+					
 				</div>
 				<div class="clear"></div>
-			</div>
-			<div class="question_list_answer_block">
-				<div class="question_list_answer_head">
-					<div class="fleft l">
-						双料黑客 回答 (10个支持者)
-					</div>
-					<div class="fright l">
-						  [2012-04-17] 
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="question_list_main_body">
-					肯定不会归你，最多归你的遗产继承人 查看全文>>
-				</div>
 			</div>
 			<div class="question_list_main_head">
 				<div class="fleft l" >
 					TAG：文学 历史 
 				</div>
 				<div class="fright l">
-					<span class="op_btns mgll"><t:actionlink t:id="answer" t:context="question.id">回答(10)</t:actionlink></span> 
-					<span class="op_btns mgll"><t:actionlink t:id="follow" t:context="question.id">关注(10)</t:actionlink></span> 
+					<span class="op_btns mgll"><t:actionlink t:id="answer" t:context="question.id">回答</t:actionlink></span> 
+					<span class="op_btns mgll"><t:actionlink t:id="follow" t:context="question.id">关注</t:actionlink></span> 
 					<span class="op_btns mgll"><t:actionlink t:id="delete" t:context="question.id">删除</t:actionlink></span>
 				</div>
 				<div class="clear"></div>
 			</div>
+			
 		</div>
 		<div class="clear"></div>
 	</div>		
+
 </html>
 

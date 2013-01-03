@@ -6,11 +6,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.fabrelab.guokr.web.services.MyCookieManager;
 import org.fabrelab.pagekit.PageInfo;
-import org.fabrelab.sitefactory.constants.RelationConstants;
-import org.fabrelab.sitefactory.dal.dataobject.GroupDO;
 import org.fabrelab.sitefactory.dal.dataobject.QuestionDO;
-import org.fabrelab.sitefactory.dal.dataobject.QuestionRelationDO;
-import org.fabrelab.sitefactory.service.GroupService;
 import org.fabrelab.sitefactory.service.QuestionService;
 import org.fabrelab.sitefactory.service.UserService;
 

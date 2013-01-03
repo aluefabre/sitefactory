@@ -1,6 +1,8 @@
 .question_list_block { clear:both; margin-top:8px; margin-right:8px; margin-left:8px;
 padding-bottom:15px; border-bottom: 1px solid #EEEEEE; }
 
+.question_list_left_part { width: 0%; float:left; }
+
 .question_list_main_part { width: 100%; float:right; }
 
 .question_list_main_head {  margin-top:10px; }
@@ -15,8 +17,6 @@ padding-bottom:15px; border-bottom: 1px solid #EEEEEE; }
 .question_list_answer_head {  margin-top:2px; }
 .question_list_answer_head_left{float:left;}
 .question_list_answer_head_right{float:right; }
-
-.question_list_main_body { margin-top:10px; }
 
 .question_title a {font-weight:bold; color:#0f6bb2; text-decoration: none;}
 

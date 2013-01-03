@@ -31,6 +31,10 @@ public class ViewBlock {
 
 	@Inject
 	private UserService userService;
+
+	public UserDO getCreator(){
+		return userService.getUserById(question.getCreatorId());
+	}
 	
 	Link onActionFromDelete(EventContext context) throws NoPermissionException {
 		if(cookieManager.getCurrentUserId()==null){
@@ -42,7 +46,4 @@ public class ViewBlock {
 		return null;
 	}
 	
-	public UserDO getCreator(){
-		return userService.getUserById(question.getCreatorId());
-	}
 }

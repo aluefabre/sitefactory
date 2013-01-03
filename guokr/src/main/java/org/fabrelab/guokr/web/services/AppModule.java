@@ -15,6 +15,7 @@ import org.fabrelab.guokr.web.formobjcet.TagEncoder;
 import org.fabrelab.sitefactory.dal.dataobject.GroupDO;
 import org.fabrelab.sitefactory.dal.dataobject.SiteDO;
 import org.fabrelab.sitefactory.dal.dataobject.TagDO;
+import org.got5.tapestry5.jquery.JQuerySymbolConstants;
 
 /**
  * Application global configurations
@@ -48,8 +49,11 @@ public class AppModule {
 		// overriding to false is a good idea. In addition, this is often
 		// overridden
 		// on the command line as -Dtapestry.production-mode=false
-		configuration.add(SymbolConstants.PRODUCTION_MODE, "true");
+		configuration.add(SymbolConstants.PRODUCTION_MODE, "false");
+		
+		configuration.add(JQuerySymbolConstants.SUPPRESS_PROTOTYPE, "true");
 
+		configuration.add(JQuerySymbolConstants.JQUERY_ALIAS, "$");
 	}
 
 	@Contribute(PageRenderLinkTransformer.class)

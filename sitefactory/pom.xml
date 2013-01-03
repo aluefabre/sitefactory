@@ -13,19 +13,19 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>3.0.0.RELEASE</version>
+			<version>3.1.0.RELEASE</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>3.0.0.RELEASE</version>
+			<version>3.1.0.RELEASE</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>3.0.0.RELEASE</version>
+			<version>3.1.0.RELEASE</version>
 		</dependency>
 
 		<!-- Other dependencies -->
@@ -83,18 +83,6 @@
 			<version>1.4</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.tapestry</groupId>
-			<artifactId>tapestry-spring</artifactId>
-			<version>5.2.5</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.tapestry</groupId>
-			<artifactId>tapestry-core</artifactId>
-			<version>5.2.5</version>
-		</dependency>
-		
 		<dependency>
 			<groupId>org.fabrelab.sitefactory</groupId>
 			<artifactId>siteutil</artifactId>
