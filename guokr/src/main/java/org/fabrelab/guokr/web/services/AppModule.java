@@ -40,7 +40,6 @@ public class AppModule {
 	}
 
 	public static void contributeApplicationDefaults(MappedConfiguration<String, String> configuration) {
-		configuration.add(SymbolConstants.SUPPORTED_LOCALES, "de,en,es,fr,it,ko,nl,no,pt_BR,pt,tr,zh_CN,zh_TW,en_US");
 
 		configuration.add(SymbolConstants.APPLICATION_CATALOG, "WEB-INF/classes/ApplicationResources.properties");
 
@@ -54,6 +53,9 @@ public class AppModule {
 		configuration.add(JQuerySymbolConstants.SUPPRESS_PROTOTYPE, "true");
 
 		configuration.add(JQuerySymbolConstants.JQUERY_ALIAS, "$");
+		 
+		configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en,fr,de");
+		 
 	}
 
 	@Contribute(PageRenderLinkTransformer.class)

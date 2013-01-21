@@ -106,7 +106,13 @@
 		<dependency>
 			<groupId>org.got5</groupId>
 			<artifactId>tapestry5-jquery</artifactId>
-			<version>3.3.0</version>
+			<version>3.3.5-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.fabrelab</groupId>
+			<artifactId>sitemodule</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		
 		<dependency>

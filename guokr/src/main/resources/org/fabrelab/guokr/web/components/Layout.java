@@ -10,7 +10,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 /**
  * Layout component for pages of application newapp.
  */
-@Import(library={"context:static/js/main.js", "context:static/js/active.js"})
+@Import(library={"context:static/js/active.js"})
 public class Layout
 {
     /** The page title, for the <title> element and the <h1> element. */

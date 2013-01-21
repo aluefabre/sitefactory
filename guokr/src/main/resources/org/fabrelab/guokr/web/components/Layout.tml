@@ -17,7 +17,7 @@
 
 
 </head>
-<body id="html_body" onload="mainModule.main();">	
+<body id="html_body">	
 	<t:header></t:header>
 	
 	<div id="bd"  class="container_24">

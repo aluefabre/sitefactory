@@ -1,5 +1,4 @@
 var activeModule = new function() {
-
     var contextBase = "/guokr";
 
     this.decorateActive = function() {
@@ -11,3 +10,8 @@ var activeModule = new function() {
     	});
     };
 };
+$(document).ready(
+		function() {
+			activeModule.decorateActive();
+		}
+);

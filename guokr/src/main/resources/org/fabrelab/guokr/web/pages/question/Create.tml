@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html t:type="layout" t:title="我的文章 - 职业帮 -- 分享知识 积累人脉 " 
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
-      xmlns:p="tapestry:parameter">
+      xmlns:p="tapestry:parameter" xmlns:j="tapestry-library:jquery">
     	<style>
 			form {
 				margin: 0;
@@ -44,7 +44,24 @@
 						&lt;p&gt;Think Defferent&lt;/p&gt;
 						&lt;p&gt;Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.&nbsp;&lt;/p&gt;
 						&lt;p&gt;- Apple Inc.&lt;/p&gt;
-					</t:textarea>
+					 </t:textarea>
+					
+					
+					<t:label for="addtag"  style="height:25px;margin-bottom:20px;font-size:16px" >标签</t:label>:&nbsp;&nbsp;
+					
+					<input t:type="Hidden" t:id="tags" id="tags"/> 
+	       
+					<t:textfield t:mixins="jquery/autocomplete" t:id="addtag"  /> 
+	       
+	       
+	       			<div t:type="ajaxformloop" t:id="phones" source="person.phones" encoder="phoneEncoder" value="phone">
+						<t:textfield t:id="number" value="phone.number"/>
+						<t:datefield t:id="date" value="phone.startDate"/>|
+						<t:removerowlink>
+							remove
+						</t:removerowlink>
+					</div>
+
 			        <input type="submit" value="提交"  style="float:right;width:70px;height:30px;margin-top:10px;"/>
 		  	  	</form>
 			</div>

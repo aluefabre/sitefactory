@@ -29,10 +29,10 @@
 			</div>
 			<div class="question_list_main_head">
 				<div class="fleft l" >
-					TAG：文学 历史 
+					<span class="mgrxl"><t:pagelink class="post-tag " page="tag/View" context="creator.id">文学</t:pagelink></span> 
+					<span class="mgrxl"><t:pagelink class="post-tag " page="tag/View" context="creator.id">历史</t:pagelink></span>
 				</div>
 				<div class="fright l">
-					<span class="op_btns mgll"><t:actionlink t:id="answer" t:context="question.id">回答</t:actionlink></span> 
 					<span class="op_btns mgll"><t:actionlink t:id="follow" t:context="question.id">关注</t:actionlink></span> 
 					<span class="op_btns mgll"><t:actionlink t:id="delete" t:context="question.id">删除</t:actionlink></span>
 				</div>

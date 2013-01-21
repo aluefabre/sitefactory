@@ -11,16 +11,14 @@
 	</div>	 
  	<div class="grid_18 main_right" >
 		<div class="para_block_l">
-			<div class="para_start xl"><p>活跃帮派</p></div>
+			<div class="para_start xl"><p>通用标签</p></div>
 			<div class="para_block_l_content xl">
 				<t:loop source="tags" value="tag">
 					<div class="entity_top_head">
-						<div class="entity_topleft_title"><t:pagelink page="question/Tag" t:context="[tag.id,0]">${tag.name}</t:pagelink></div>
-						<div class="follow_block_btns"><t:actionlink t:id="delete" t:context="tag.id"  >删除</t:actionlink></div>
+						<div class="entity_topleft_title"><t:pagelink page="tag/View" t:context="[tag.id,0]">${tag.name}</t:pagelink></div>
+						<div class="op_btns fright mgtxl mgrxl"><t:actionlink t:id="delete" t:context="tag.id"  >删除</t:actionlink></div>
 					</div>
-				
 					<div class="entity_list_content">${tag.description}</div>
-					
 				</t:loop>
 			
 			</div>

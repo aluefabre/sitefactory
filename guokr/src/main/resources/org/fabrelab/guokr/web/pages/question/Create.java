@@ -1,23 +1,40 @@
 package org.fabrelab.guokr.web.pages.question;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.tapestry5.EventConstants;
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.Link;
+import org.apache.tapestry5.ValueEncoder;
+import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.OnEvent;
+import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.PageRenderLinkSource;
+import org.fabrelab.guokr.model.Person;
+import org.fabrelab.guokr.model.Phone;
 import org.fabrelab.guokr.web.pages.Login;
 import org.fabrelab.guokr.web.services.MyCookieManager;
-import org.fabrelab.sitefactory.constants.RelationConstants;
-import org.fabrelab.sitefactory.dal.dataobject.GroupRelationDO;
 import org.fabrelab.sitefactory.dal.dataobject.QuestionDO;
-import org.fabrelab.sitefactory.dal.dataobject.QuestionRelationDO;
-import org.fabrelab.sitefactory.service.GroupService;
 import org.fabrelab.sitefactory.service.QuestionService;
 
-public class Create {
-	@Property
-	private String title;
 
+@Import(library={"context:static/js/question.js"})
+public class Create {
+
+	
+	@Property
+	private String title ;
+	
+	@Property
+	private String tags ;
+	
+	@Property
+	private String addtag ;
+	
 	@Property
 	private String content;
 
@@ -29,6 +46,12 @@ public class Create {
 
 	@Inject
 	private PageRenderLinkSource pageRenderLinkSource;
+
+	@OnEvent(EventConstants.ACTIVATE)
+	void init() {
+		if (person == null)
+			person = new Person();
+	}
 
 	private Link onActivate(EventContext context) {
 		if (cookieManager.getCurrentUserId() == null) {
@@ -52,5 +75,52 @@ public class Create {
 		questionService.createQuestion(question, cookieManager.getCurrentUserId());
 		
 		return pageRenderLinkSource.createPageRenderLinkWithContext(View.class, question.getId());
+	}
+
+	List<String> onProvideCompletionsFromAddTag(String partial) {
+		List<String> result = new ArrayList<String>();
+		result.add("tetss");
+		result.add("asdasdasd");
+		return result;
+	}
+	
+	
+	@Property
+	private Phone phone;
+	
+	@Property
+	@Persist
+	private Person person;
+	 
+	public ValueEncoder<Phone> getPhoneEncoder() {
+		return new ValueEncoder<Phone>() {
+			public String toClient(Phone value) {
+				return value.getNumber();
+			}
+
+			public Phone toValue(String clientValue) {
+				for (Phone currentPhone : person.getPhones()) {
+					if (currentPhone.getNumber() != null
+							&& clientValue.equals(currentPhone.getNumber()))
+						return currentPhone;
+				}
+				return null;
+			}
+		};
+	}
+
+	@OnEvent(value = EventConstants.ADD_ROW, component = "phones")
+	public Object onAddRowFromPhones() {
+		Phone phone = new Phone();
+		phone.setNumber("");
+		phone.setStartDate(new Date());
+		person.getPhones().add(phone);
+		phone.setPerson(person);
+		return phone;
+	}
+
+	@OnEvent(value = EventConstants.REMOVE_ROW, component = "phones")
+	void onRemoveRowFromPhones(Phone phoneToDelete) {
+		person.getPhones().remove(phoneToDelete);
 	}
 }
